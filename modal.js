@@ -78,17 +78,17 @@ function validateForm() {
 
   // If all validations pass, close the form modal and show the thank you modal
   if (isValid) {
-    modalbg.style.display = 'none'; // Close the form modal
-    thankYouModal.style.display = 'block'; // Show the thank you modal
-    form.reset(); // Reset form only if validation is successful
-    console.log('first ' + isValid);
-    console.log('last ' + isValid);
-    console.log('email ' + isValid);
-    console.log('birthdate ' + isValid);
-    console.log('quantity ' + isValid);
-    console.log('location ' + isValid);
-    console.log('checkbox1 ' + isValid);
-    console.log('checkbox2 ' + isValid);
+    modalbg.style.display = 'none'; 
+    thankYouModal.style.display = 'block'; 
+    form.reset(); 
+    console.log('first '+ ' ' + isValid);
+    console.log('last ' + ' '  + isValid);
+    console.log('email ' + ' ' + isValid);
+    console.log('birthdate '+ ' '  + isValid);
+    console.log('quantity '+ ' '  + isValid);
+    console.log('location ' + ' ' + isValid);
+    console.log('checkbox1 ' + ' ' + isValid);
+    console.log('checkbox2 ' + ' ' + isValid);
   }
 }
 
