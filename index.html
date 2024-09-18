@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <title>Reservation</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <!-- Link to custom CSS for modal styles -->
+  <link rel="stylesheet" href="modal.css" />
+  <!-- Link to Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&display=swap" rel="stylesheet">
+  <!-- Link to Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <!-- Link to Google Fonts (Duplicate, can be removed) -->
+  <link href="https://fonts.googleapis.com/css?family=DM+Sans" rel="stylesheet" />
+</head>
+
+<body>
+  <!-- Navigation bar -->
+  <div class="topnav" id="myTopnav">
+    <div class="header-logo">
+      <!-- Logo image -->
+      <img alt="logo" src="Logo.png" />
+    </div>
+    <div class="main-navbar">
+      <!-- Navigation links -->
+      <a href="#"><span>Détails de l'évènement</span></a>
+      <a href="#"><span>À propos</span></a>
+      <a href="#"><span>Contact</span></a>
+      <a href="#"><span>Évènements passés</span></a>
+      <!-- Icon for mobile menu -->
+      <a href="javascript:void(0);" class="icon" onclick="editNav()">
+        <i class="fa fa-bars"></i>
+      </a>
+    </div>
+  </div>
+
+  <main>
+    <!-- Hero section with event information -->
+    <div class="hero-section">
+      <div class="hero-content">
+        <!-- Main headline -->
+        <h1 class="hero-headline">
+          Marathon national<br>
+          de jeux vidéos
+        </h1>
+        <!-- Description text -->
+        <p class="hero-text">
+          Vous aimez jouer ? Notre prochain évènement gaming est ouvert
+          aux réservations... Places limitées !
+        </p>
+        <!-- Signup button for desktop -->
+        <button class="btn-signup modal-btn">
+          je m'inscris
+        </button>
+      </div>
+      <div class="hero-img">
+        <!-- Background image -->
+        <img src="./bg_img.jpg" alt="img" />
+      </div>
+      <!-- Signup button for mobile -->
+      <button class="btn-signup modal-btnmobile">
+        je m'inscris
+      </button>
+    </div>
+
+    <!-- Modal for reservation form -->
+    <div id="formModal" class="bground">
+      <div class="content">
+        <!-- Close button for modal -->
+        <span class="close"></span>
+        <div class="modal-body">
+          <!-- Reservation form -->
+          <form id="reserveForm" name="reserve" action="index.html" method="get">
+
+            <!-- First name input -->
+            <div class="formData">
+              <label for="first">Prénom</label><br>
+              <input class="text-control" type="text" id="first" name="first" minlength="2" /><br>
+              <span id="error-first" class="error-message">Veuillez entrer 2 caractères ou plus pour le champ du prénom.</span>
+            </div>
+
+            <!-- Last name input -->
+            <div class="formData">
+              <label for="last">Nom</label><br>
+              <input class="text-control" type="text" id="last" name="last" minlength="2" /><br>
+              <span id="error-last" class="error-message">Veuillez entrer 2 caractères ou plus pour le champ du nom.</span>
+            </div>
+
+            <!-- Email input -->
+            <div class="formData">
+              <label for="email">E-mail</label><br>
+              <input class="text-control" type="email" id="email" name="email" /><br>
+              <span id="error-email" style="display: none; color: red;">Veuillez entrer un email.</span>
+            </div>
+
+            <!-- Birthdate input -->
+            <div class="formData">
+              <label for="birthdate">Date de naissance</label><br>
+              <input class="text-control" type="date" id="birthdate" name="birthdate" /><br>
+              <span id="error-birthdate" class="error-message">Vous devez entrer votre date de naissance.</span>
+            </div>
+
+            <!-- Number of tournaments input -->
+            <div class="formData">
+              <label>À combien de tournois GameOn avez-vous déjà participé ?</label><br>
+              <input type="number" class="text-control" id="quantity" name="quantity" min="0" max="99">
+              <span id="error-quantity" class="error-message" style="display: none; color: red;">Veuillez entrer un nombre de tournois.</span>
+            </div>
+
+            <!-- Tournament location selection -->
+            <p class="text-label">À quel tournoi souhaitez-vous participer cette année ?</p>
+            <div class="formData">
+              <input class="checkbox-input" type="radio" id="location1" name="location" value="New York" />
+              <label class="checkbox-label" for="location1">
+                <span class="checkbox-icon"></span>
+                New York</label>
+              <input class="checkbox-input" type="radio" id="location2" name="location" value="San Francisco" />
+              <label class="checkbox-label" for="location2">
+                <span class="checkbox-icon"></span>
+                San Francisco</label>
+              <input class="checkbox-input" type="radio" id="location3" name="location" value="Seattle" />
+              <label class="checkbox-label" for="location3">
+                <span class="checkbox-icon"></span>
+                Seattle</label>
+              <input class="checkbox-input" type="radio" id="location4" name="location" value="Chicago" />
+              <label class="checkbox-label" for="location4">
+                <span class="checkbox-icon"></span>
+                Chicago</label>
+              <input class="checkbox-input" type="radio" id="location5" name="location" value="Boston" />
+              <label class="checkbox-label" for="location5">
+                <span class="checkbox-icon"></span>
+                Boston</label>
+              <input class="checkbox-input" type="radio" id="location6" name="location" value="Portland" />
+              <label class="checkbox-label" for="location6">
+                <span class="checkbox-icon"></span>
+                Portland</label>
+            </div>
+
+            <!-- Error message for location selection -->
+            <div id="error-location" class="error-message">
+              Vous devez choisir une option.
+            </div>
+
+            <!-- Checkbox inputs for terms and conditions -->
+            <div class="formData">
+              <input class="checkbox-input" type="checkbox" id="checkbox1"/>
+              <label class="checkbox2-label" for="checkbox1">
+                <span class="checkbox-icon"></span>
+                J'ai lu et accepté les conditions d'utilisation.
+              </label>
+              <br>
+              
+              <!-- Error message for terms and conditions checkbox -->
+              <div id="error-checkbox1" class="error-message">
+                Vous devez vérifier que vous acceptez les termes et conditions.
+              </div>
+              <input class="checkbox-input" type="checkbox" id="checkbox2" />
+              <label class="checkbox2-label" for="checkbox2">
+                <span class="checkbox-icon"></span>
+                Je souhaite être prévenu des prochains évènements.
+              </label>
+              <br>
+
+              <!-- Submit button -->
+              <input class="btn-submit" type="submit" value="C'est parti" />
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- Thank you modal -->
+    <div class="bground" id="thankYouModal">
+      <div class="content">
+        <!-- Close button for thank you modal -->
+        <span class="close"></span>
+        <div class="modal-body">
+          <p>Merci pour votre inscription.</p>
+          <!-- Button to close the thank you modal -->
+          <button class="btn-close-thankyou">Fermer</button>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer section -->
+  <footer>
+    <p class="copyrights">
+      Copyright 2014 - 2022, GameOn Inc.
+    </p>
+  </footer>
+  <!-- Link to JavaScript file for modal functionality -->
+  <script src="modal.js"></script>
+</body>
+
+</html>
