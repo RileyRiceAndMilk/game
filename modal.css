@@ -562,6 +562,22 @@ body {
     margin-top: 50px;
     text-align: center;
   }
+   #thankYouModal .modal-body {
+    margin-top: 150px; 
+    padding: 20px; 
+  }
+  
+  #thankYouModal .btn-close-thankyou {
+    margin-bottom: 10px; 
+    align-self: center;
+  }
+  
+  #thankYouModal .content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; 
+    height: auto; 
+  }
 }
 
 @media screen and (max-width: 768px) {
