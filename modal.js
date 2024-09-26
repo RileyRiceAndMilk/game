@@ -34,40 +34,105 @@ function resetErrorMessages() {
 function validateForm() {
   let isValid = true;
 
-  resetErrorMessages(); // Resets error messages before validation
+  resetErrorMessages();
 
-  // Validate first name (must be at least 2 characters)
+  // Declare the regular expression only once at the beginning
+  const letterRegex = /^[A-Za-z]+$/;
+
+  // Validate the first name
   const first = document.getElementById('first').value.trim();
+  const errorFirstMessage = document.getElementById('error-first');
+
+  // Display the default error message
+  errorFirstMessage.style.display = 'block';
+
   if (first.length < 2) {
-    document.getElementById('error-first').style.display = 'block';
+    errorFirstMessage.textContent = 'Veuillez entrer 2 caractères ou plus pour le champ du prénom.';
     isValid = false;
+  } else if (!letterRegex.test(first)) {
+    errorFirstMessage.textContent = 'Seules les lettres sont autorisées pour le champ du prénom.';
+    isValid = false;
+  } else {
+    errorFirstMessage.style.display = 'none';
   }
 
-  // Validate last name (must be at least 2 characters)
+  // Validate the last name
   const last = document.getElementById('last').value.trim();
+  const errorLastMessage = document.getElementById('error-last');
+
+  // Display the default error message
+  errorLastMessage.style.display = 'block';
+
   if (last.length < 2) {
-    document.getElementById('error-last').style.display = 'block';
+    errorLastMessage.textContent = 'Veuillez entrer 2 caractères ou plus pour le champ du nom.';
     isValid = false;
+  } else if (!letterRegex.test(last)) {
+    errorLastMessage.textContent = 'Seules les lettres sont autorisées pour le champ du nom.';
+    isValid = false;
+  } else {
+    errorLastMessage.style.display = 'none';
   }
 
-  // Validate email (cannot be empty)
+  // New regular expression for stricter email validation
+  const emailRegex = /^[^\s@]+@[^\s@]+\.(com|fr|net|org|edu|gov|info)$/;
+
+  // Validate the email (cannot be empty and must have a valid format)
   const email = document.getElementById('email').value.trim();
+  const errorEmailMessage = document.getElementById('error-email');
+
+  // Reset the display of the error message
+  errorEmailMessage.style.display = 'none';
+
   if (email === '') {
-    document.getElementById('error-email').style.display = 'block'; // Show error if invalid
-    isValid = false;
+    // If the email is empty
+    errorEmailMessage.textContent = 'Veuillez entrer une adresse e-mail.';
+    errorEmailMessage.style.display = 'block';
+  } else if (!emailRegex.test(email)) {
+    // If the email is invalid
+    errorEmailMessage.textContent = 'Veuillez entrer un email valide.';
+    errorEmailMessage.style.display = 'block';
+  } else {
+    // If everything is correct, hide the error
+    errorEmailMessage.style.display = 'none';
   }
 
-  // Validate birthdate (must not be empty)
+  // Validate the birthdate (must not be empty and must be at least 18 years old)
+
   const birthdate = document.getElementById('birthdate').value;
+  const errorBirthdateMessage = document.getElementById('error-birthdate');
+
+  // Reset the display of the error message
+  errorBirthdateMessage.style.display = 'none';
+
   if (!birthdate) {
-    document.getElementById('error-birthdate').style.display = 'block'; // Show error if invalid
+    // If the birthdate is empty
+    errorBirthdateMessage.textContent = 'Veuillez entrer votre date de naissance.';
+    errorBirthdateMessage.style.display = 'block';
     isValid = false;
+  } else {
+    // Calculate the age
+    const birthDateObj = new Date(birthdate);
+    const today = new Date();
+    const age = today.getFullYear() - birthDateObj.getFullYear();
+    const monthDifference = today.getMonth() - birthDateObj.getMonth();
+
+    // Check if the birthday has occurred this year
+    if (monthDifference < 0 || (monthDifference === 0 && today.getDate() < birthDateObj.getDate())) {
+      age--;
+    }
+
+    if (age < 18) {
+      // If the user is under 18 years old
+      errorBirthdateMessage.textContent = 'Vous devez avoir au moins 18 ans.';
+      errorBirthdateMessage.style.display = 'block';
+      isValid = false;
+    }
   }
 
   // Validate quantity (must be a number and cannot be empty)
   const quantity = document.getElementById('quantity').value.trim();
   if (quantity === '' || isNaN(quantity)) {
-    document.getElementById('error-quantity').style.display = 'block'; // Show error if invalid
+    document.getElementById('error-quantity').style.display = 'block';
     isValid = false;
   }
 
@@ -87,14 +152,14 @@ function validateForm() {
 
   // If all validations pass, close the form modal and show the thank you modal
   if (isValid) {
-    modalbg.style.display = 'none'; 
-    thankYouModal.style.display = 'block'; 
-    form.reset(); 
-    console.log('first '+ ' ' + isValid);
-    console.log('last ' + ' '  + isValid);
+    modalbg.style.display = 'none';
+    thankYouModal.style.display = 'block';
+    form.reset();
+    console.log('first ' + ' ' + isValid);
+    console.log('last ' + ' ' + isValid);
     console.log('email ' + ' ' + isValid);
-    console.log('birthdate '+ ' '  + isValid);
-    console.log('quantity '+ ' '  + isValid);
+    console.log('birthdate ' + ' ' + isValid);
+    console.log('quantity ' + ' ' + isValid);
     console.log('location ' + ' ' + isValid);
     console.log('checkbox1 ' + ' ' + isValid);
     console.log('checkbox2 ' + ' ' + isValid);
@@ -108,6 +173,7 @@ const modalBtns = document.querySelectorAll('.btn-signup');
 const closeBtns = document.querySelectorAll('.close');
 const closeThankYouBtn = document.querySelector('.btn-close-thankyou');
 const form = document.querySelector('#reserveForm');
+
 
 // Add click event to open the modal when any signup button is clicked
 modalBtns.forEach(btn => {
