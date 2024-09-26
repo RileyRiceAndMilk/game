@@ -389,14 +389,6 @@ input {
   white-space: nowrap;
 }
 
-.hero-text {
-  width: 300px;
-  font-weight: normal;
-  margin-top: 57px;
-  padding: 0;
-}
-
-
 .btn-signup {
   outline: none;
   text-transform: capitalize;
@@ -407,6 +399,13 @@ input {
 
 .hero-img {
   grid-column: span 8;
+}
+
+.hero-text {
+  width: 146%;
+  font-weight: normal;
+  margin-top: 57px;
+  padding: 0;
 }
 
 .hero-img img {
