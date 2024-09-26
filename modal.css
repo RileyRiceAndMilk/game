@@ -58,7 +58,7 @@ img {
   background-color: #ff0000;
   color: #fff;
   border-radius: 15px;
-  text-decoration: underline; 
+  text-decoration: underline;
 }
 
 .topnav .icon {
@@ -96,8 +96,8 @@ footer {
 }
 
 .bground {
-  display: none; 
-  place-items: center; 
+  display: none;
+  place-items: center;
   position: fixed;
   z-index: 1;
   left: 0;
@@ -111,15 +111,15 @@ footer {
 
 #thankYouModal .content {
   width: 500px;
-  height: 676px; 
+  height: 676px;
   background: #232323;
   border-radius: 10px;
   color: #fff;
   padding: 20px;
   display: flex;
   flex-direction: column;
-  justify-content: center; 
-  align-items: center; 
+  justify-content: center;
+  align-items: center;
   position: relative;
   overflow: hidden;
   animation-name: modalopen;
@@ -131,25 +131,25 @@ footer {
   flex: 1;
   display: flex;
   flex-direction: column;
-  justify-content: center; 
-  align-items: center; 
+  justify-content: center;
+  align-items: center;
   text-align: center;
 }
 
 #thankYouModal .btn-close-thankyou {
-  align-self: flex-end; 
+  align-self: flex-end;
   margin-top: 260px;
 }
 
 #thankYouModal p {
-  font-family: 'DM Sans', sans-serif; 
-  font-size: 36px; 
-  margin: 0; 
+  font-family: 'DM Sans', sans-serif;
+  font-size: 36px;
+  margin: 0;
   font-weight: 400;
 }
 
 .content {
-  position: relative; 
+  position: relative;
   margin: 5% auto;
   width: 100%;
   max-width: 500px;
@@ -220,9 +220,9 @@ input {
 }
 
 #error-email {
-  font-size: 0.8em; 
+  font-size: 0.8em;
   color: red;
-  display: none; 
+  display: none;
 }
 
 .formData[data-error-visible="true"]::after {
@@ -277,12 +277,12 @@ input {
   display: none;
 }
 
-.checkbox-input:checked + .checkbox-label .checkbox-icon::after,
-.checkbox-input:checked + .checkbox2-label .checkbox-icon::after {
+.checkbox-input:checked+.checkbox-label .checkbox-icon::after,
+.checkbox-input:checked+.checkbox2-label .checkbox-icon::after {
   opacity: 1;
 }
 
-.checkbox-input:checked + .checkbox2-label .checkbox-icon {
+.checkbox-input:checked+.checkbox2-label .checkbox-icon {
   background: #279e7a;
 }
 
@@ -306,13 +306,13 @@ input {
 }
 
 .close {
-  position: absolute; 
+  position: absolute;
   top: 10px;
-  right: 10px; 
+  right: 10px;
   width: 32px;
   height: 32px;
   cursor: pointer;
-  z-index: 10; 
+  z-index: 10;
   transform: scale(0.7);
 }
 
@@ -378,7 +378,7 @@ input {
   top: 0;
 }
 
-.hero-content > * {
+.hero-content>* {
   position: relative;
   z-index: 1;
 }
@@ -390,11 +390,12 @@ input {
 }
 
 .hero-text {
-  width: 146%;
+  width: 300px;
   font-weight: normal;
   margin-top: 57px;
   padding: 0;
 }
+
 
 .btn-signup {
   outline: none;
@@ -423,7 +424,7 @@ input {
   text-align: center;
 }
 
-.hero-section > .btn-signup {
+.hero-section>.btn-signup {
   display: none;
 }
 
@@ -437,6 +438,7 @@ footer {
     opacity: 0;
     transform: translateY(-150px);
   }
+
   to {
     opacity: 1;
   }
@@ -511,16 +513,35 @@ body {
 }
 
 @media screen and (max-width: 800px) {
-  
-    #thankYouModal .content {
-    width: 300px;
-    height: 545px;
+
+  .header-logo img {
+    width: 200px;
+    height: auto;
+  }
+
+  #thankYouModal .content {
+    width: 414px;
+    height: 657px;
+  }
+
+  #thankYouModal .bground {
+    display: none;
+    place-items: center;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 414px;
+    height: 657px;
+    overflow: auto;
+    background-color: rgba(26, 39, 156, 0.4);
+    overflow-x: hidden;
 }
-  
+
   .hero-section {
     display: block;
     box-shadow: unset;
-    padding: 0 20px; 
+    padding: 0 20px;
   }
 
   .hero-content {
@@ -539,12 +560,12 @@ body {
 
   .hero-content {
     padding: 20px;
-    box-sizing: border-box; 
+    box-sizing: border-box;
   }
-  
-  .hero-headline,
-  .hero-text {
-    font-size: 4.5rem; 
+
+  .hero-headline {
+    font-size: 40px;
+    white-space: normal;
   }
 
   .hero-img img {
@@ -552,7 +573,7 @@ body {
     margin-top: 40px;
   }
 
-  .hero-section > .btn-signup {
+  .hero-section>.btn-signup {
     display: block;
     margin: 32px auto 10px;
     padding: 12px 35px;
@@ -562,25 +583,38 @@ body {
     margin-top: 50px;
     text-align: center;
   }
-   #thankYouModal .modal-body {
-    margin-top: 150px; 
-    padding: 20px; 
+
+  #thankYouModal .modal-body {
+    margin-top: 150px;
+    padding: 20px;
   }
-  
+
   #thankYouModal .btn-close-thankyou {
-    margin-bottom: 10px; 
+    margin-bottom: 10px;
     align-self: center;
   }
-  
+
   #thankYouModal .content {
     display: flex;
     flex-direction: column;
-    justify-content: center; 
-    height: auto; 
+    justify-content: center;
+    height: auto;
   }
 }
 
 @media screen and (max-width: 768px) {
+
+  .hero-headline {
+    font-size: 40px;
+    line-height: 1.2;
+  }
+
+  /* Pour forcer la ligne suivante */
+  .hero-headline br {
+    display: block;
+    content: "";
+  }
+
   .topnav a {
     display: none;
   }
@@ -606,17 +640,18 @@ body {
     text-align: left;
   }
 
-  .hero-headline {
-    font-size: 3rem;
-    white-space: normal;
- 
+  .hero-text {
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 1.2;
+    max-height: 2.4em;
+    overflow: hidden;
+    display: block;
+    word-wrap: break-word;
+    width: 100%;
+    margin-top: 20px;
   }
 
-  .hero-text {
-    font-size: 1rem;
-    white-space: normal;
-    width: unset;
-  }
 
   .hero-content {
     padding: 0;
@@ -628,6 +663,20 @@ body {
   .hero-section {
     margin-bottom: 0;
   }
+
+  #thankYouModal .bground {
+    display: none;
+    place-items: center;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 414px;
+    height: 657px;
+    overflow: auto;
+    background-color: rgba(26, 39, 156, 0.4);
+    overflow-x: hidden;
+}
+
 }
 
 @media screen and (max-width: 540px) {
@@ -636,15 +685,58 @@ body {
   }
 
   .hero-headline {
-    font-size: 2.5rem;
-    white-space: normal; 
-    word-wrap: break-word;
+    font-size: 38px;
+    line-height: 1.2;
+    white-space: nowrap;
+    font-weight: 500;
   }
 
   .hero-text {
-    font-size: 0.9rem;
-    white-space: normal; 
-    word-wrap: break-word; 
+    font-size: 14px;
+  }
+}
+
+@media screen and (max-width: 475px) {
+  .hero-text {
+    font-size: 12px;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  .topnav a.icon {
+    margin-top: -15px;
+  }
+
+  .hero-headline {
+    font-size: 30px;
+  }
+
+  .hero-text {
+    font-size: 10px;
+  }
+
+  #thankYouModal .content {
+    place-items: center;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 350px;
+    height: 657px;
+}
+
+}
+
+@media screen and (max-width: 320px) {
+  .topnav a.icon {
+    margin-top: -15px;
+  }
+
+  .hero-headline {
+    font-size: 25px;
+  }
+
+  .hero-text {
+    font-size: 8px;
   }
 }
 
