@@ -679,9 +679,11 @@ body {
 }
 
 @media screen and (max-width: 540px) {
-   .topnav a.icon {
+  .topnav a {display: none;}
+  .topnav a.icon {
     float: right;
     display: block;
+    margin-top: -15px;
   }
   .hero-headline {
     font-size: 38px;
